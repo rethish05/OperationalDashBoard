@@ -1,0 +1,94 @@
+<div [@routerTransition]>
+    <app-page-header [heading]="'Operational Desk'" [icon]="'fa-table'"></app-page-header>
+    <div class="row">
+        <div class="col col-xl-12 col-lg-12 ">
+
+            <div class="card mb-3">
+                <div class="card-header">Filter </div>
+                <div class="card-block table-responsive">
+                    <table class="table table-bordered">
+                        <thead>
+                        <tr>
+                            <th>LOB</th>
+                            <th>Project</th>
+                            <th>Application</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td>
+                                <div class="form-group">
+                                    <select class="form-control">
+                                        <option>DATA</option>
+                                        <option>VIDEO</option>
+                                        <option>VOICE</option>
+                                    </select>
+                                </div>
+                            </td>
+                            <td>
+                                <select class="form-control">
+                                    <option>Wi-Fi</option>
+                                    <option>Data Loader</option>
+                                </select>
+                            </td>
+                            <td>
+                                <select class="form-control">
+                                    <option>Wi-Fi Mediation</option>
+                                    <option>Loader -1 </option>
+                                </select>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                    <button type="button" class="btn btn-lg btn-info">Filter</button>
+                </div>
+            </div>
+
+            <div class="card mb-3">
+                <div class="card-header">Search Result</div>
+                <div class="card-block table-responsive">
+                    <table class="table table-hover table-striped">
+                        <thead>
+                        <tr>
+                            <th>Lob</th>
+                            <th>Project</th>
+                            <th>Application</th>
+                            <th>Server</th>
+                            <th>Status</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <th>VIDEO</th>
+                            <td>VOD</td>
+                            <td>Coupon Mediation</td>
+                            <td>cmpweb-po-wc-1p</td>
+                            <td>
+                                <div class="card card-success card-inverse">
+                                    <div class="card-header card-success">
+                                        Running
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>VIDEO</th>
+                            <td>VOD</td>
+                            <td>Coupon Collector</td>
+                            <td>cmpweb-po-wc-2p</td>
+                            <td>
+                                <div class="card card-danger card-inverse">
+                                    <div class="card-header card-danger">
+                                        Stopped
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

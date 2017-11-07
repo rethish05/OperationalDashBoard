@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { routerTransition } from '../../router.animations';
+import {OperationalDashboardService} from "../../service/OperationalDashboard/OperationalDashboardService";
 
 @Component({
     selector: 'app-tables',
@@ -8,6 +9,16 @@ import { routerTransition } from '../../router.animations';
     animations: [routerTransition()]
 })
 export class TablesComponent implements OnInit {
-    constructor() { }
+
+    lobSelected = '';
+    projectSelected = '';
+    applicationSelected = '';
+
+    constructor(private operationalDashboardService : OperationalDashboardService) { }
     ngOnInit() { }
+
+    onChangeLob(){
+        console.log(this.operationalDashboardService.project.get(this.lobSelected));
+        console.log(this.lobSelected);
+    }
 }

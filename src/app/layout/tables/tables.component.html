@@ -18,23 +18,22 @@
                         <tr>
                             <td>
                                 <div class="form-group">
-                                    <select class="form-control">
-                                        <option>DATA</option>
-                                        <option>VIDEO</option>
-                                        <option>VOICE</option>
+                                    <select class="form-control" value="{{lobSelected}}" [(ngModel)]="lobSelected" (change)="onChangeLob()">
+                                        <option value="" [ngValue]="">Select</option>
+                                        <option *ngFor="let lob of operationalDashboardService.lobList" value="{{lob}}">{{lob}}</option>
                                     </select>
                                 </div>
                             </td>
                             <td>
-                                <select class="form-control">
-                                    <option>Wi-Fi</option>
-                                    <option>Data Loader</option>
+                                <select class="form-control" value="{{projectSelected}}" [(ngModel)]="projectSelected">
+                                    <option value="" [ngValue]="">Select</option>
+                                    <option *ngFor="let project of operationalDashboardService.project.get(lobSelected)" value="{{project}}">{{project}}</option>
                                 </select>
                             </td>
                             <td>
-                                <select class="form-control">
-                                    <option>Wi-Fi Mediation</option>
-                                    <option>Loader -1 </option>
+                                <select class="form-control" value="{{applicationSelected}}" [(ngModel)]="applicationSelected">
+                                    <option value="" [ngValue]="">Select</option>
+                                    <option *ngFor="let application of operationalDashboardService.application.get(projectSelected)" value="application">{{application}}</option>
                                 </select>
                             </td>
                         </tr>

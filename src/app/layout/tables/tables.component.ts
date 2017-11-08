@@ -13,12 +13,45 @@ export class TablesComponent implements OnInit {
     lobSelected = '';
     projectSelected = '';
     applicationSelected = '';
+    filterEnable = true;
+
+    listOfAppTable : any = [  {
+        'lob': 'DATA',
+        'project': 'WIFI',
+        'application': 'Radius',
+        'server': 'cmptrn-dt-1d.ula.comcast.net',
+        'status': 'S'
+    },
+        {
+            'lob': 'DATA',
+            'project': 'WIFI',
+            'application': 'Radius',
+            'server': 'cmptrn-dt-2d.ula.comcast.net',
+            'status': 'S'
+        }];
 
     constructor(private operationalDashboardService : OperationalDashboardService) { }
-    ngOnInit() { }
+    ngOnInit() {
+
+    }
 
     onChangeLob(){
         console.log(this.operationalDashboardService.project.get(this.lobSelected));
         console.log(this.lobSelected);
+    }
+
+    doFilter(){
+
+        this.operationalDashboardService.doFilter(this.lobSelected, this.projectSelected, this.applicationSelected)
+            .subscribe( res =>{
+                this.listOfAppTable = res;
+            });
+    }
+
+    performAction(action:string, server: string, application: string, project: string, lob: string){
+        this.operationalDashboardService.performAction(action, server, application, project, lob)
+            .subscribe(res =>{
+                console.log(res);
+            });
     }
 }

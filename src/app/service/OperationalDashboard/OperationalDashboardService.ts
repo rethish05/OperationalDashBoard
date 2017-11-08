@@ -1,4 +1,7 @@
 import {Injectable} from '@angular/core';
+import {HttpRestService} from "../Network/http-rest-service.service";
+
+import {Observable} from 'rxjs/Observable';
 
 @Injectable()
 export class OperationalDashboardService {
@@ -6,12 +9,12 @@ export class OperationalDashboardService {
     project : Map<String,Array<string>>;
     application : Map<String,Array<string>>;
 
-    constructor(){
-       this.fillTheList(this.response);
-
+    constructor(private httpRestService : HttpRestService){
+      /* this.fillTheList(this.response);
        console.log(this.lobList);
        console.log(this.project);
-       console.log(this.application);
+       console.log(this.application);*/
+      this.callService();
     }
 
     fillTheList( response : any ){
@@ -34,6 +37,27 @@ export class OperationalDashboardService {
                 }
             }
         }
+    }
+
+    callService(){
+        this.httpRestService.callGetService('/ServiceApi/api/v1/getHierarchy')
+            .subscribe( (res )=>{
+                this.fillTheList(res);
+                console.log(this.lobList);
+                console.log(this.project);
+                console.log(this.application);
+            });
+    }
+
+    performAction(action:string, server: string, application: string, project: string, lob: string): Observable<any>{
+        // http://cmptrn-dt-1d.ula.comcast.net:8080/api/v1/executeCommand/lob/DATA/project/WIFI/application/Radius/hostName/cmptrn-dt-1d.ula.comcast.net/execCmd/START
+        return this.httpRestService.callGetService('/ServiceApi/api/v1/executeCommand/lob/'+lob+'/project/'+project+'/application/'+application+'/hostName/'+server+'/execCmd/'+action);
+    }
+
+    doFilter(lob: string, project: string, application: string): Observable<any>{
+        // http://cmptrn-dt-1d.ula.comcast.net:8080/api/v1/getServerList/lob/DATA/project/WIFI/application/RADIUS_LOADER;
+         return   this.httpRestService.callGetService('/ServiceApi/api/v1/getServerList/lob/'+lob+'/project/'+project+'/application/'+project);
+
     }
 
     response = [{

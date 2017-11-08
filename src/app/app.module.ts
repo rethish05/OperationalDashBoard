@@ -9,6 +9,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AuthGuard } from './shared';
 import {OperationalDashboardService} from "./service/OperationalDashboard/OperationalDashboardService";
+import {HttpRestService} from "./service/Network/http-rest-service.service";
 // AoT requires an exported function for factories
 export function HttpLoaderFactory(http: Http) {
     // for development
@@ -34,7 +35,8 @@ export function HttpLoaderFactory(http: Http) {
         })
     ],
     providers: [AuthGuard,
-        OperationalDashboardService],
+        OperationalDashboardService,
+        HttpRestService],
     bootstrap: [AppComponent]
 })
 export class AppModule {

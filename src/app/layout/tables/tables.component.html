@@ -3,7 +3,7 @@
     <div class="row">
         <div class="col col-xl-12 col-lg-12 ">
 
-            <div class="card mb-3">
+            <div class="card mb-3" *ngIf="filterEnable">
                 <div class="card-header">Filter </div>
                 <div class="card-block table-responsive">
                     <table class="table table-bordered">
@@ -39,11 +39,11 @@
                         </tr>
                         </tbody>
                     </table>
-                    <button type="button" class="btn btn-lg btn-info">Filter</button>
+                    <button type="button" class="btn btn-lg btn-info btn-sm" (click)="doFilter()">Filter</button>
                 </div>
             </div>
 
-            <div class="card mb-3">
+            <div class="card mb-3" *ngIf="listOfAppTable.length > 0">
                 <div class="card-header">Search Result</div>
                 <div class="card-block table-responsive">
                     <table class="table table-hover table-striped">
@@ -54,22 +54,37 @@
                             <th>Application</th>
                             <th>Server</th>
                             <th>Status</th>
+                            <th>Actions</th>
                         </tr>
                         </thead>
                         <tbody>
-                        <tr>
-                            <th>VIDEO</th>
-                            <td>VOD</td>
-                            <td>Coupon Mediation</td>
-                            <td>cmpweb-po-wc-1p</td>
+                        <tr *ngFor="let appDet of listOfAppTable">
+                            <td>{{appDet.lob}}</td>
+                            <td>{{appDet.project}}</td>
+                            <td>{{appDet.application}}</td>
+                            <td>{{appDet.server}}</td>
                             <td>
-                                <div class="card card-success card-inverse">
+                                <div *ngIf="appDet.status == 'A'" class="card card-success card-inverse w-50">
                                     <div class="card-header card-success">
                                         Running
                                     </div>
                                 </div>
+                                <div *ngIf="appDet.status == 'S'" class="card card-danger card-inverse w-50">
+                                    <div class="card-header card-danger">
+                                        Stopped
+                                    </div>
+                                </div>
+                            </td>
+                            <td>
+                                <button  *ngIf="appDet.status == 'A'" type="button" class="btn disabled "
+                                         (click)="performAction('STOP',appDet.server,appDet.application,appDet.project,appDet.lob)">Stop</button>
+
+                                <button  *ngIf="appDet.status == 'S'" type="button" class="btn btn-primary"
+                                         (click)="performAction('START',appDet.server,appDet.application,appDet.project,appDet.lob)">Start</button>
+
                             </td>
                         </tr>
+                        <!--
                         <tr>
                             <th>VIDEO</th>
                             <td>VOD</td>
@@ -82,7 +97,9 @@
                                     </div>
                                 </div>
                             </td>
+                            <td>cmpweb-po-wc-1p</td>
                         </tr>
+                        -->
                         </tbody>
                     </table>
                 </div>

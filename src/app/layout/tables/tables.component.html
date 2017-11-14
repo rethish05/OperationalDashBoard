@@ -33,7 +33,7 @@
                             <td>
                                 <select class="form-control" value="{{applicationSelected}}" [(ngModel)]="applicationSelected">
                                     <option value="" [ngValue]="">Select</option>
-                                    <option *ngFor="let application of operationalDashboardService.application.get(projectSelected)" value="application">{{application}}</option>
+                                    <option *ngFor="let application of operationalDashboardService.application.get(projectSelected)" value="{{application}}">{{application}}</option>
                                 </select>
                             </td>
                         </tr>
@@ -53,7 +53,7 @@
                             <th>Project</th>
                             <th>Application</th>
                             <th>Server</th>
-                            <th>Status</th>
+                            <!--<th>Status</th>-->
                             <th>Actions</th>
                         </tr>
                         </thead>
@@ -63,23 +63,23 @@
                             <td>{{appDet.project}}</td>
                             <td>{{appDet.application}}</td>
                             <td>{{appDet.server}}</td>
-                            <td>
+                            <!--<td>
                                 <div *ngIf="appDet.status == 'A'" class="card card-success card-inverse w-50">
                                     <div class="card-header card-success">
                                         Running
                                     </div>
                                 </div>
-                                <div *ngIf="appDet.status == 'S'" class="card card-danger card-inverse w-50">
+                                <div *ngIf="appDet.status == 'S' || appDet.status == undefined " class="card card-danger card-inverse w-50">
                                     <div class="card-header card-danger">
                                         Stopped
                                     </div>
                                 </div>
-                            </td>
+                            </td>-->
                             <td>
                                 <button  *ngIf="appDet.status == 'A'" type="button" class="btn disabled "
                                          (click)="performAction('STOP',appDet.server,appDet.application,appDet.project,appDet.lob)">Stop</button>
 
-                                <button  *ngIf="appDet.status == 'S'" type="button" class="btn btn-primary"
+                                <button  *ngIf="appDet.status == 'S' || appDet.status == undefined " type="button" class="btn btn-primary"
                                          (click)="performAction('START',appDet.server,appDet.application,appDet.project,appDet.lob)">Start</button>
 
                             </td>

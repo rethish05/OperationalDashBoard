@@ -15,7 +15,8 @@ export class TablesComponent implements OnInit {
     applicationSelected = '';
     filterEnable = true;
 
-    listOfAppTable : any = [  {
+    listOfAppTable : any = [];
+    /*[  {
         'lob': 'DATA',
         'project': 'WIFI',
         'application': 'Radius',
@@ -28,7 +29,7 @@ export class TablesComponent implements OnInit {
             'application': 'Radius',
             'server': 'cmptrn-dt-2d.ula.comcast.net',
             'status': 'S'
-        }];
+        }];*/
 
     constructor(private operationalDashboardService : OperationalDashboardService) { }
     ngOnInit() {
@@ -50,8 +51,15 @@ export class TablesComponent implements OnInit {
 
     performAction(action:string, server: string, application: string, project: string, lob: string){
         this.operationalDashboardService.performAction(action, server, application, project, lob)
-            .subscribe(res =>{
-                console.log(res);
+            .subscribe((res :any)=>{
+                console.log(res[0]);
+                var status = res[0].status;
+                if( 'Success' === status){
+                    alert(application+' is started successfully in '+ server);
+                }else{
+                    alert(application+' is start failed in '+ server);
+                }
+
             });
     }
 }

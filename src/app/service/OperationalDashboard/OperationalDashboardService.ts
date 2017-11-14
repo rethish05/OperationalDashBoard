@@ -5,9 +5,9 @@ import {Observable} from 'rxjs/Observable';
 
 @Injectable()
 export class OperationalDashboardService {
-    lobList : Array<string>;
-    project : Map<String,Array<string>>;
-    application : Map<String,Array<string>>;
+    lobList : Array<string> = [];
+    project : Map<String,Array<string>> = new Map();
+    application : Map<String,Array<string>> = new Map();
 
     constructor(private httpRestService : HttpRestService){
       /* this.fillTheList(this.response);
@@ -56,7 +56,7 @@ export class OperationalDashboardService {
 
     doFilter(lob: string, project: string, application: string): Observable<any>{
         // http://cmptrn-dt-1d.ula.comcast.net:8080/api/v1/getServerList/lob/DATA/project/WIFI/application/RADIUS_LOADER;
-         return   this.httpRestService.callGetService('/ServiceApi/api/v1/getServerList/lob/'+lob+'/project/'+project+'/application/'+project);
+         return   this.httpRestService.callGetService('/ServiceApi/api/v1/getServerList/lob/'+lob+'/project/'+project+'/application/'+application);
 
     }
 

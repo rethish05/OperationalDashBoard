@@ -1,14 +1,11 @@
 <div [@routerTransition]>
-    <h2 class="text-muted">Dashboard <small>Statistics Overview</small></h2>
+    <h2 class="text-muted">EM&M Operational Platform</h2>
     <div class="row">
         <div class="col-md-12">
             <ngb-carousel>
                 <ng-template ngbSlide *ngFor="let slider of sliders">
                     <img class="img-fluid mx-auto d-block" [src]="slider.imagePath" alt="Random first slide" width="100%">
-                    <div class="carousel-caption">
-                        <h3>{{slider.label}}</h3>
-                        <p>{{slider.text}}</p>
-                    </div>
+                    
                 </ng-template>
             </ngb-carousel>
         </div>
@@ -29,35 +26,82 @@
         </div>
     </div>
     <hr />
-    <ngb-alert [type]="alert.type" (close)="closeAlert(alert)" *ngFor="let alert of alerts">{{ alert.message }}</ngb-alert>
     <hr />
-    <div class="row">
-        <div class="col-lg-8">
-            <div class="card card-default">
-                <div class="card-header">
-                    <i class="fa fa-clock-o fa-fw"></i> Responsive Timeline
-                </div>
-                <!-- /.card-header -->
-                <app-timeline></app-timeline>
-                <!-- /.card-body -->
+    
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <h2>Event Management &amp; Mediation - EPA</h2>
+                <p>Team which supports and maintains 1000's of applications,100's of servers including physical machines/VM.</p>
+                <hr>
             </div>
-            <!-- /.card -->
         </div>
-        <!-- /.col-lg-8 -->
-        <div class="col-lg-4">
-            <div class="card card-default">
-                <div class="card-header">
-                    <i class="fa fa-bell fa-fw"></i> Notifications card
-                </div>
-                <!-- /.card-header -->
-                <app-notification></app-notification>
-                <!-- /.card-body -->
-            </div>
-            <!-- /.card -->
-
-            <app-chat></app-chat>
-            <!-- /.card .chat-card -->
-        </div>
-        <!-- /.col-lg-4 -->
+        <!-- /.row -->
     </div>
+    <!-- /.Container -->
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <h2>Line Of Business (LOB)</h2>
+                <hr>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-6 left">
+                <a href="#/video">
+                    <img class="img-fluid mx-auto d-block" src="assets/images/LOBVIDEO.jpg">
+                </a>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-6">
+                <a href="#/data">
+                    <img class="img-fluid mx-auto d-block" src="assets/images/LOBDATA.jpg">
+                </a>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-6">
+                <a href="#/voice">
+                    <img class="img-fluid mx-auto d-block" src="assets/images/LOBVOICE.jpg">
+                </a>
+            </div>
+        
+                
+            </div>
+        </div>
+        
+         <hr />
+    	<hr />
+        
+        <div class="container">
+
+        <div class="row">
+            <div class="col-lg-4 col-md-4">
+                <h3><i class="fa fa-check-circle"></i> Complete System Maintainance</h3>
+                <p>This tool provides capability to tracking all the applications running in a server. Need to configure the devices and applications in a proper way.Configuration file installed in each server could be sufficient to accommodate those new processes</p>
+            </div>
+            <hr />
+           <div class="col-lg-4 col-md-4">
+                <h3><i class="fa fa-check-circle"></i> Complete Application Monitoring</h3>
+                <p>This tool provide accessibilty to monitor the alarms , view notifications and maintain the same. Also provides dashboard capability to view various trends. </p>
+            </div>
+        </div>
+        <!-- /.row -->
+
+   	 </div>
+   	 
+   	   <hr />
+    	<hr />
+        
+    <!-- /.container -->
+     <div class="container">
+        <div class="row">
+        	<div class="col-lg-6 col-md-6 col-sm-6">
+                <a href="#/voice">
+                    <img class="img-fluid mx-auto d-block" src="assets/images/TEAM.jpg">
+                </a>
+                <div class="col-lg-6 col-md-6">
+                <h3><i class="fa fa-folder-open"></i> Write to US</h3>
+                <p>Please write to us in case of any troubles to access-<strong><a href="http://www.gmail.com"> emm_L3@cable.comcast.com</a></strong></p>
+            </div>
+            </div>
+            <hr />   		
+          </div>
+        </div>
+   
 </div>

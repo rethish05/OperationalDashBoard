@@ -15,7 +15,7 @@ export class TablesComponent implements OnInit {
     applicationSelected = '';
     filterEnable = true;
 
-    listOfAppTable : any = [  {
+    listOfAppTable : any = [  /*{
         'lob': 'DATA',
         'project': 'WIFI',
         'application': 'Radius',
@@ -28,7 +28,7 @@ export class TablesComponent implements OnInit {
             'application': 'Radius',
             'server': 'cmptrn-dt-2d.ula.comcast.net',
             'status': 'S'
-        }];
+        }*/];
 
     constructor(private operationalDashboardService : OperationalDashboardService) { }
     ngOnInit() {
@@ -44,7 +44,8 @@ export class TablesComponent implements OnInit {
 
         this.operationalDashboardService.doFilter(this.lobSelected, this.projectSelected, this.applicationSelected)
             .subscribe( res =>{
-                this.listOfAppTable = res;
+                if(res !== null)
+                    this.listOfAppTable = res;
             });
     }
 

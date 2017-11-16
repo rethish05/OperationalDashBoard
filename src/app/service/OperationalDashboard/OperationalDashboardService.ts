@@ -56,7 +56,7 @@ export class OperationalDashboardService {
 
     doFilter(lob: string, project: string, application: string): Observable<any>{
         // http://cmptrn-dt-1d.ula.comcast.net:8080/api/v1/getServerList/lob/DATA/project/WIFI/application/RADIUS_LOADER;
-         return   this.httpRestService.callGetService('/ServiceApi/api/v1/getServerList/lob/'+lob+'/project/'+project+'/application/'+project);
+         return   this.httpRestService.callGetService('/ServiceApi/api/v1/getServerList/lob/'+lob+'/project/'+project+'/application/'+application);
 
     }
 

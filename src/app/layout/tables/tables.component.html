@@ -33,7 +33,7 @@
                             <td>
                                 <select class="form-control" value="{{applicationSelected}}" [(ngModel)]="applicationSelected">
                                     <option value="" [ngValue]="">Select</option>
-                                    <option *ngFor="let application of operationalDashboardService.application.get(projectSelected)" value="application">{{application}}</option>
+                                    <option *ngFor="let application of operationalDashboardService.application.get(projectSelected)" value="{{application}}">{{application}}</option>
                                 </select>
                             </td>
                         </tr>

@@ -1,10 +1,14 @@
 <nav class="sidebar" [ngClass]="{sidebarPushRight: isActive}">
     <ul class="list-group">
-       
+
+        <a [routerLink]="['/dashboard']" [routerLinkActive]="['router-link-active']" class="list-group-item">
+            <i class="fa fa-fw fa-table"></i>&nbsp;{{ 'Dashboard' | translate }}
+        </a>
+
         <a [routerLink]="['/tables']" [routerLinkActive]="['router-link-active']" class="list-group-item">
             <i class="fa fa-fw fa-table"></i>&nbsp;{{ 'Operational Desk' | translate }}
         </a>
-       
+
         <a href = "http://zabser-po-a1p.sys.comcast.net/zabbix" target="_blank" class="list-group-item">
             <i class="fa fa-fw fa-table"></i>&nbsp;{{ 'Zabbix' | translate }}
         </a>

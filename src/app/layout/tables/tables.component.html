@@ -1,17 +1,18 @@
 <div [@routerTransition]>
     <app-page-header [heading]="'Operational Desk'" [icon]="'fa-table'"></app-page-header>
-    <div class="row">
+    <div class="row small">
         <div class="col col-xl-12 col-lg-12 ">
 
             <div class="card mb-3" *ngIf="filterEnable">
                 <div class="card-header">Filter </div>
-                <div class="card-block table-responsive">
-                    <table class="table table-bordered">
+                <div class="table-responsive">
+                    <table class="table mb-0 table-bordered">
                         <thead>
                         <tr>
                             <th>LOB</th>
                             <th>Project</th>
                             <th>Application</th>
+                            <th></th>
                         </tr>
                         </thead>
                         <tbody>
@@ -36,17 +37,20 @@
                                     <option *ngFor="let application of operationalDashboardService.application.get(projectSelected)" value="{{application}}">{{application}}</option>
                                 </select>
                             </td>
+                            <td>
+                                <button type="button" class="btn btn-lg btn-info btn-sm" (click)="doFilter()">Filter</button>
+                            </td>
                         </tr>
                         </tbody>
                     </table>
-                    <button type="button" class="btn btn-lg btn-info btn-sm" (click)="doFilter()">Filter</button>
+
                 </div>
             </div>
 
             <div class="card mb-3" *ngIf="listOfAppTable.length > 0">
                 <div class="card-header">Search Result</div>
-                <div class="card-block table-responsive">
-                    <table class="table table-hover table-striped">
+                <div class=" table-responsive">
+                    <table class="table table-hover mb-0 table-striped">
                         <thead>
                         <tr>
                             <th>Lob</th>
@@ -55,13 +59,14 @@
                             <th>Server</th>
                             <!--<th>Status</th>-->
                             <th>Actions</th>
+
                         </tr>
                         </thead>
                         <tbody>
                         <tr *ngFor="let appDet of listOfAppTable">
                             <td>{{appDet.lob}}</td>
                             <td>{{appDet.project}}</td>
-                            <td>{{appDet.application}}</td>
+                            <td>{{appDet.application}} <div class="small btn-link" style="cursor: pointer" (click)="viewLog()">View Log</div></td>
                             <td>{{appDet.server}}</td>
                             <!--<td>
                                 <div *ngIf="appDet.status == 'A'" class="card card-success card-inverse w-50">

@@ -4,10 +4,15 @@
         <a [routerLink]="['/tables']" [routerLinkActive]="['router-link-active']" class="list-group-item">
             <i class="fa fa-fw fa-table"></i>&nbsp;{{ 'Operational Desk' | translate }}
         </a>
-       
-        <a href = "http://zabser-po-a1p.sys.comcast.net/zabbix" target="_blank" class="list-group-item">
-            <i class="fa fa-fw fa-table"></i>&nbsp;{{ 'Zabbix' | translate }}
+        
+        <a [routerLink]="['/zabbix']" [routerLinkActive]="['router-link-active']" class="list-group-item">
+            <i class="fa fa-fw fa-table"></i>&nbsp;{{ 'Zabbix Monitoring' | translate }}
         </a>
+       
+       
+<!--         <a href = "http://zabser-po-a1p.sys.comcast.net/zabbix" target="_blank" class="list-group-item"> -->
+<!--             <i class="fa fa-fw fa-table"></i>&nbsp;{{ 'Zabbix' | translate }} -->
+<!--         </a> -->
 
         <a href ="http://imscol-wc-a1p:3000/dashboard/db/new-dashboard-copy?orgId=1" target="_blank" class="list-group-item">
             <i class="fa fa-fw fa-bar-chart-o"></i>&nbsp;{{ 'Grafana' | translate }}

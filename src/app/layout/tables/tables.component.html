@@ -8,31 +8,27 @@
                 <div class="table-responsive">
                     <table class="table mb-0 table-bordered">
                         <thead>
-                        <tr>
-                            <th>LOB</th>
-                            <th>Project</th>
-                            <th>Application</th>
-                            <th></th>
-                        </tr>
-                        </thead>
                         <tbody>
                         <tr>
-                            <td>
-                                <div class="form-group">
-                                    <select class="form-control" value="{{lobSelected}}" [(ngModel)]="lobSelected" (change)="onChangeLob()">
-                                        <option value="" [ngValue]="">Select</option>
-                                        <option *ngFor="let lob of operationalDashboardService.lobList" value="{{lob}}">{{lob}}</option>
-                                    </select>
-                                </div>
-                            </td>
-                            <td>
-                                <select class="form-control" value="{{projectSelected}}" [(ngModel)]="projectSelected">
+                        	<th>Lob</th>
+                        	<td>
+	                        	<div class="form-group">
+	                                 <select value="{{lobSelected}}" [(ngModel)]="lobSelected" (change)="onChangeLob()">
+	                                     <option value="" [ngValue]="">Select</option>
+	                                     <option *ngFor="let lob of operationalDashboardService.lobList" value="{{lob}}">{{lob}}</option>
+	                                 </select>
+	                             </div>
+	                         </td>
+                             <th>Project</th>
+                             <td>
+                                <select class = "box" value="{{projectSelected}}" [(ngModel)]="projectSelected">
                                     <option value="" [ngValue]="">Select</option>
                                     <option *ngFor="let project of operationalDashboardService.project.get(lobSelected)" value="{{project}}">{{project}}</option>
                                 </select>
                             </td>
+                            <th>Application</th>
                             <td>
-                                <select class="form-control" value="{{applicationSelected}}" [(ngModel)]="applicationSelected">
+                                <select class = "box" value="{{applicationSelected}}" [(ngModel)]="applicationSelected">
                                     <option value="" [ngValue]="">Select</option>
                                     <option *ngFor="let application of operationalDashboardService.application.get(projectSelected)" value="{{application}}">{{application}}</option>
                                 </select>

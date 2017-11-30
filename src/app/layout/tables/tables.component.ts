@@ -13,6 +13,12 @@ export class TablesComponent implements OnInit {
     lobSelected = '';
     projectSelected = '';
     applicationSelected = '';
+
+
+    lobSelectedHold = 'DATA';
+    projectSelectedHold = 'WIFI';
+    applicationSelectedHold = 'Radius';
+
     filterEnable = true;
 
     listOfAppTable : any = [  {
@@ -41,6 +47,10 @@ export class TablesComponent implements OnInit {
     }
 
     doFilter(){
+
+        this.lobSelectedHold = this.lobSelected;
+        this.projectSelectedHold = this.projectSelected;
+        this.applicationSelectedHold = this.applicationSelected;
 
         this.operationalDashboardService.doFilter(this.lobSelected, this.projectSelected, this.applicationSelected)
             .subscribe( res =>{

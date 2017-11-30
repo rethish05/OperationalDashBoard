@@ -44,7 +44,19 @@
             </div>
 
             <div class="card mb-3" *ngIf="listOfAppTable.length > 0">
-                <div class="card-header">Search Result</div>
+                <div class="card-header">Search Result
+                </div>
+                <div class="card-header w-100">
+                    <div class="float-right">
+                        ( <b>{{lobSelectedHold}}</b> ->
+                        <b>{{projectSelectedHold}}</b> ->
+                        <b>{{applicationSelectedHold}}</b> )&nbsp;&nbsp;
+                    <button   type="button" class="btn-sm btn-primary"
+                              (click)="performAction('START','ALL',appDet.application,appDet.project,appDet.lob)">Start All</button>
+                    <button  type="button" class="btn-sm btn-primary"
+                             (click)="performAction('STOP','ALL',appDet.application,appDet.project,appDet.lob)">Stop All</button>
+                    </div>
+                </div>
                 <div class=" table-responsive">
                     <table class="table table-hover mb-0 table-striped">
                         <thead>
@@ -54,7 +66,7 @@
                             <th>Application</th>
                             <th>Server</th>
                             <!--<th>Status</th>-->
-                            <th>Actions</th>
+                            <th class="text-center">Actions</th>
 
                         </tr>
                         </thead>
@@ -76,11 +88,11 @@
                                     </div>
                                 </div>
                             </td>-->
-                            <td>
-                                <button  *ngIf="appDet.status == 'A'" type="button" class="btn disabled "
+                            <td class="text-center">
+                                <button  *ngIf="appDet.status == 'A'" type="button" class="btn-sm disabled "
                                          (click)="performAction('STOP',appDet.server,appDet.application,appDet.project,appDet.lob)">Stop</button>
 
-                                <button  *ngIf="appDet.status == 'S' || appDet.status == undefined " type="button" class="btn btn-primary"
+                                <button  *ngIf="appDet.status == 'S' || appDet.status == undefined " type="button" class="btn-sm btn-primary"
                                          (click)="performAction('START',appDet.server,appDet.application,appDet.project,appDet.lob)">Start</button>
 
                             </td>

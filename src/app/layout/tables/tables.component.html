@@ -61,10 +61,10 @@
                     <table class="table table-hover mb-0 table-striped">
                         <thead>
                         <tr>
-                            <th>Lob</th>
-                            <th>Project</th>
-                            <th>Application</th>
-                            <th>Server</th>
+                            <th class="text-center">Lob</th>
+                            <th class="text-center">Project</th>
+                            <th class="text-center">Application</th>
+                            <th class="text-center">Server</th>
                             <!--<th>Status</th>-->
                             <th class="text-center">Actions</th>
 
@@ -72,10 +72,10 @@
                         </thead>
                         <tbody>
                         <tr *ngFor="let appDet of listOfAppTable">
-                            <td>{{appDet.lob}}</td>
-                            <td>{{appDet.project}}</td>
-                            <td>{{appDet.application}} <div class="small btn-link" style="cursor: pointer" (click)="viewLog()">View Log</div></td>
-                            <td>{{appDet.server}}</td>
+                            <td class="text-center">{{appDet.lob}}</td>
+                            <td class="text-center">{{appDet.project}}</td>
+                            <td class="text-center">{{appDet.application}} <div class="small btn-link" style="cursor: pointer" (click)="viewLog()">View Log</div></td>
+                            <td class="text-center">{{appDet.server}}</td>
                             <!--<td>
                                 <div *ngIf="appDet.status == 'A'" class="card card-success card-inverse w-50">
                                     <div class="card-header card-success">
@@ -89,10 +89,10 @@
                                 </div>
                             </td>-->
                             <td class="text-center">
-                                <button  *ngIf="appDet.status == 'A'" type="button" class="btn-sm disabled "
+                                <button  *ngIf="appDet.status == 'Y'" type="button" class="btn-sm btn-primary "
                                          (click)="performAction('STOP',appDet.server,appDet.application,appDet.project,appDet.lob)">Stop</button>
 
-                                <button  *ngIf="appDet.status == 'S' || appDet.status == undefined " type="button" class="btn-sm btn-primary"
+                                <button  *ngIf="appDet.status == 'N' || appDet.status == undefined " type="button" class="btn-sm btn-primary"
                                          (click)="performAction('START',appDet.server,appDet.application,appDet.project,appDet.lob)">Start</button>
 
                             </td>

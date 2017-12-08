@@ -89,10 +89,10 @@
                                 </div>
                             </td>-->
                             <td class="text-center">
-                                <button  *ngIf="appDet.status == 'Y'" type="button" class="btn-sm btn-primary "
+                                <button  *ngIf="appDet.status == 'N'" type="button" class="btn-sm btn-primary "
                                          (click)="performAction('STOP',appDet.server,appDet.application,appDet.project,appDet.lob)">Stop</button>
 
-                                <button  *ngIf="appDet.status == 'N' || appDet.status == undefined " type="button" class="btn-sm btn-primary"
+                                <button  *ngIf="appDet.status == 'Y' || appDet.status == undefined " type="button" class="btn-sm btn-primary"
                                          (click)="performAction('START',appDet.server,appDet.application,appDet.project,appDet.lob)">Start</button>
 
                             </td>

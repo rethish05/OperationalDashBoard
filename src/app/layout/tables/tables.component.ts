@@ -22,21 +22,7 @@ export class TablesComponent implements OnInit {
     filterEnable = true;
 
     listOfAppTable : any =[];
-    /*[  {
-        'lob': 'DATA',
-        'project': 'WIFI',
-        'application': 'Radius',
-        'server': 'cmptrn-dt-1d.ula.comcast.net',
-        'status': 'S'
-    },
-        {
-            'lob': 'DATA',
-            'project': 'WIFI',
-            'application': 'Radius',
-            'server': 'cmptrn-dt-2d.ula.comcast.net',
-            'status': 'A'
-        }];
-*/
+    
     constructor(private operationalDashboardService : OperationalDashboardService) { }
     ngOnInit() {
 

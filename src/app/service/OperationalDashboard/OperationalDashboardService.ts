@@ -59,6 +59,12 @@ export class OperationalDashboardService {
          return   this.httpRestService.callGetService('/ServiceApi/api/v1/getServerList/lob/'+lob+'/project/'+project+'/application/'+application);
 
     }
+    
+    authenticate(username: string, password: string): Observable<any>{
+        // http://cmptrn-dt-1d.ula.comcast.net:8080/api/v1/getServerList/lob/DATA/project/WIFI/application/RADIUS_LOADER;
+         return   this.httpRestService.callGetService('/ServiceApi/api/v1/authenticate/username/'+username+'@cable/password/'+password);
+
+    }
 
     response = [{
         "id": "DATA",
